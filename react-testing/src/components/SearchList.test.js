@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import SearchList from './searchList';
-import Item from '../factories/item';
+import SearchList from './SearchList';
+import Item from '../factories/Item';
 
 describe('searchList', () => {
     test('without search', () => {
@@ -22,8 +22,8 @@ describe('searchList', () => {
         ];
         render(<SearchList items={items} search="1" />);
         expect(screen.getByText(/1/i)).toBeInTheDocument();
-        // expect(screen.getByText(/2/i)).not.toBeInTheDocument();
-        // expect(screen.getByText(/3/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/2/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/3/i)).not.toBeInTheDocument();
     });
     // test('Snapshot', () => {
     //     const component = renderer.create(
