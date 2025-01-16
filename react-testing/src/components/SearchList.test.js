@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import SearchList from './SearchList';
 import Item from '../factories/Item';
 
-describe('searchList', () => {
+describe('SearchList', () => {
     test('without search', () => {
         const items = [
             new Item,

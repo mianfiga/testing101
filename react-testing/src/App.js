@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SearchList from './components/SearchList';
 import { listTranslation } from './helpers/list';
 import TodoList from './components/TodoList';
@@ -6,15 +6,15 @@ import TodoList from './components/TodoList';
 
 function App() {
   const [search, setSearch] = useState('');
+  const [users, setUsers] = useState('');
   const change = (e) => setSearch(e.target.value);
-  const users = {
-    type: 'User',
-    items: [
-      {name: 'Ana', surname:"Manzana"},
-      {name: 'Juana', surname:"Hermana"},
-      {name: 'Juana', surname:"Pera"},
-    ]
-  };
+
+  useEffect(() =>{
+    fetch('/users.json')
+    .then(response => response.json())
+    .then(userData => setUsers(userData))
+    .catch(() => setUsers([]))
+  },[]);
 
   return (
     <div className="App">

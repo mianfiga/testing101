@@ -1,0 +1,8 @@
+{
+  "type": "User",
+  "items": [
+    { "name": "Ana", "surname": "Manzana" },
+    { "name": "Juana", "surname": "Hermana" },
+    { "name": "Juana", "surname": "Pera" }
+  ]
+}
